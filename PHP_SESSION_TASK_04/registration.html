@@ -5,7 +5,7 @@
 	<td><nav>
 		<a href="home.html">Home |</a>
 		<a href="login.html"> Login |</a>
-		<a href=""> Registration |</a>
+		<a href="registration.html"> Registration |</a>
 	</nav></td>
 </tr>
 <tr><td colspan="2">
@@ -54,11 +54,11 @@
 			<tr><td colspan="4"><hr/></td></tr>
 			<tr>
 				<td colspan="3">
-					<fieldset>
+					<fieldset name="gender">
 						<legend>Gender</legend>    
-						<input name="gender" type="radio">Male
-						<input name="gender" type="radio">Female
-						<input name="gender" type="radio">Other
+						<input  type="radio" value="Male">Male
+						<input  type="radio" value="Female">Female
+						<input  type="radio" value="Other">Other
 					</fieldset>
 				</td>
 				<td></td>
@@ -68,9 +68,9 @@
 				<td colspan="3">
 					<fieldset>
 						<legend>Date of Birth</legend>    
-						<input type="text" size="2" />/
-						<input type="text" size="2" />/
-						<input type="text" size="4" />
+						<input name="date" type="text" size="2" />/
+						<input name="month" type="text" size="2" />/
+						<input name="year" type="text" size="4" />
 						<font size="2"><i>(dd/mm/yyyy)</i></font>
 					</fieldset>
 				</td>
