@@ -40,25 +40,33 @@
 
 
 <?php
-    if(isset($_POST["logBtn"])) 
-    {
+    if(isset($_POST["logBtn"])) {
         $id = $_POST["id"];
         $password = $_POST["password"];
-        if(empty($id) || empty($password))
-        {
-            echo "empty input found";
+        if(empty($id) || empty($password)){
+            echo "empty fields found";
         }
-        else 
-        {
+        else {
             $file = fopen("Info.txt",'r');
             while(!feof($file)) {
                 $data = fgets($file);
                 $user = explode('|', $data);
 
                 if($id == trim($user[0]) && $password == trim($user[1])) {
-                    echo "login Successful";
-                    break;
-            }
+                    session_start();
+                    $_SESSION["name"] = $user[2];
+                    $_SESSION["id"] = $user[0];
+                    $_SESSION["email"] = $user[3];
+                    $_SESSION["userType"] = $user[4];
+
+                    if(trim($user[4]) == "User") {
+                        header("Location: userHome.php");
+                    }
+                    else {
+                        header("Location: adminHome.php");
+                    }
+
+                }
                 else {
                     echo "username/password wrong";
                 }
