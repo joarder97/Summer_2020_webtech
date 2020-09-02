@@ -33,14 +33,10 @@
 
 			var xhttp = new XMLHttpRequest();
 			 xhttp.onreadystatechange = function() {
-			    if (this.readyState == 4 && this.status == 200) {
-			      document.getElementById("div").innerHTML =
-			      this.responseText;
-			    }
-
 			xhttp.open('POST', '../php/signupController.php', true);
 		   	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		    xhttp.send("../php/signupcontroller.php?id=id&password=password&confirmPassword=confirmPassword&name=name&email=email&type=type");
 	}
+}
 	</script>
 </html>
