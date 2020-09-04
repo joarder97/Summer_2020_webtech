@@ -19,6 +19,7 @@
 			</select><br>
 			<div id="div"></div>
 			<input type="button" name="submit" id="submit" value="submit" onclick="createUser()">
+			<input type="button" name="loginBtn" id="loginBtn" value="Login" style="display : none">
 			<div id="error"></div>
 		</fieldset>
 	</form>

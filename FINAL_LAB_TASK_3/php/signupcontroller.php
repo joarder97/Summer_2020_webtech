@@ -1,6 +1,5 @@
 <?php
 	require_once('../service/userService.php');
-	$error = array();
 
 	$id = $_POST['id'];
 	$password = $_POST['password'];
@@ -9,24 +8,22 @@
 	$email = $_POST['email'];
 	$type = $_POST['type'];
 
+	$con = dbConnection();
+	$user_check_query = "SELECT * FROM user WHERE email = '$email' LIMIT 1";
+	$result = $con->query($user_check_query);
+	$row = mysqli_fetch_row($result);
 
 	if(empty($id) || empty($password) || empty($confirmPassword) || empty($name) || empty($email) || empty($type)){
 		echo "empty fields found";
-		array_push($error, "Field empty Error");
 	}
-
-	$con = dbConnection();
-	$user_check_query = "SELECT * FROM user WHERE email = '$email' LIMIT 1";
-	//$result = mysqli_query($con, $user_check_query);
-	//$user = mysqli_fetch_row($result);
-	$result = $con->query($user_check_query);
-	if(!$result){
-		create();
-
+	elseif($row>=1){
+		echo "email exists";
+	}
+	elseif($password != $confirmPassword){
+		echo("Passwords does not match");
 	}
 	else{
-		echo "email exists";
-			array_push($error, "email Error"); 
+		create();
 	}
 
 ?>

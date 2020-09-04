@@ -16,7 +16,7 @@ function createUser(){
 			document.getElementById("error").innerHTML = this.responseText;
 			// document.getElementById('data').innerHTML =  this.responseText;
 			//document.getElementsByTagName('h2')[0].innerHTML = "Success";
-			//document.getElementById('loginButton').style.display = "inline";
+			document.getElementById('loginBtn').style.display = "inline";
 			// console.log(document.getElementById('loginButton'));
 		}
 	}
