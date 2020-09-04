@@ -12,31 +12,18 @@
 			Confirm Password: <input type="password" name="confirmPassword" id="confirmPassword"><br><br>
 			Name: <input type="text" name="name" id="name"><br><br>
 			Email: <input type="email" name="email" id="email"><br><br>
-				User Type:
+			User Type:
 			<select id="type">
-			  <option value="user">User</option>
-			  <option value="admin">Admin</option>
+				<option value="user">User</option>
+				<option value="admin">Admin</option>
 			</select><br>
 			<div id="div"></div>
 			<input type="button" name="submit" id="submit" value="submit" onclick="createUser()">
-	</fieldset>
+			<div id="error"></div>
+		</fieldset>
 	</form>
 </body>
-	<script type="text/javascript">
-		function createUser(){
-			var id = document.getElementById("id").value;
-			var password = document.getElementById("password").value;
-			var confirmPassword = document.getElementById("confirmPassword").value;
-			var name = document.getElementById("name").value;
-			var email = document.getElementById("email").value;
-			var type = document.getElementById("type").value;
-
-			var xhttp = new XMLHttpRequest();
-			 xhttp.onreadystatechange = function() {
-			xhttp.open('POST', '../php/signupController.php', true);
-		   	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		    xhttp.send("../php/signupcontroller.php?id=id&password=password&confirmPassword=confirmPassword&name=name&email=email&type=type");
-	}
-}
-	</script>
+<script type="text/javascript" src = "../js/user.js">
+	
+</script>
 </html>
