@@ -18,13 +18,14 @@
 				<option value="admin">Admin</option>
 			</select><br>
 			<div id="div"></div>
-			<input type="button" name="submit" id="submit" value="submit" onclick="createUser()">
-			<input type="button" name="loginBtn" id="loginBtn" value="Login" style="display : none">
+			<input type="button" name="submit" id="submit" value="submit" onclick="createUser()"><br>
+			<input type="button" name="loginBtn" value="LoginBtn" style="visibility : hidden" id="loginBtn" onclick="redirect()"><br>
 			<div id="error"></div>
 		</fieldset>
 	</form>
 </body>
-<script type="text/javascript" src = "../js/user.js">
+
+<script type="text/javascript" src = "../assets/js/user.js">
 	
 </script>
 </html>
