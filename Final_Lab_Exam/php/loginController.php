@@ -11,16 +11,18 @@
         echo "empty fields found";
     }
     else{
+        echo "!!!";
         $status = validate();
        
 		if(!$status){
             echo "!!";
-           
-		}else{
+        }
+        else{
             echo "done";
             $_SESSION['email'] = $email;
             header('location: ../views/adminHome.php');
-		}
+        }
+        
     }
 
 ?>

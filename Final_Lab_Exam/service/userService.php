@@ -31,13 +31,13 @@ require_once('../db/db.php');
     function validate(){
         $con = dbConnection();
 
-        global $email;
         global $password;
+        global $email;
 
         $user_check_query = "SELECT * FROM user WHERE password = '".$password."' and email = '".$email."' LIMIT 1";
         $result = $con->query($user_check_query);
         //$row = mysqli_fetch_assoc($result);
-        if(mysqli_num_rows($result) == 1){
+        if($result->num_rows == 0){
             return true;
         }
         else{
