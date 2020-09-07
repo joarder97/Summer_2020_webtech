@@ -34,10 +34,12 @@ require_once('../db/db.php');
         global $password;
         global $email;
 
-        $user_check_query = "SELECT * FROM user WHERE password = '".$password."' and email = '".$email."' LIMIT 1";
+        $user_check_query = "SELECT * FROM user WHERE password='".$password."' and email='".$email."' LIMIT 1";
         $result = $con->query($user_check_query);
         //$row = mysqli_fetch_assoc($result);
-        if($result->num_rows == 0){
+        //$rowcount=mysqli_num_rows($result);
+        $row = mysqli_fetch_row($result);
+        if($row == 1){
             return true;
         }
         else{

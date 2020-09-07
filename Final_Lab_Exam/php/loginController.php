@@ -1,5 +1,5 @@
 <?php
-    session_start(); 
+    //session_start(); 
 
     require_once('../service/userService.php');
 
@@ -11,16 +11,16 @@
         echo "empty fields found";
     }
     else{
-        echo "!!!";
         $status = validate();
        
-		if(!$status){
-            echo "!!";
-        }
-        else{
-            echo "done";
+		if($status){
+            session_start(); 
             $_SESSION['email'] = $email;
             header('location: ../views/adminHome.php');
+        }
+        else{
+            echo "!!";
+            
         }
         
     }
