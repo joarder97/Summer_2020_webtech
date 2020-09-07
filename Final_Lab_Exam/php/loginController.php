@@ -11,17 +11,16 @@
         echo "empty fields found";
     }
     else{
-        $con = dbConnection();
-        $user_check_query = "SELECT * FROM user WHERE password = '$password' and email = '$email' LIMIT 1";
-        $result = $con->query($user_check_query);
-        //$row = mysqli_fetch_row($result);
-        if($result->num_rows == 0){
-            $_SESSION['email'] = $email; 
-            header('location: ../views/adminHome.php');
-        }
-        else{
+       $status = validate();
+       
+		if($status){
+            //echo "done";
+			$_SESSION['email'] = $email;
+			header('location: ../views/adminHome.php');
+		}else{
+            //header('location: ../views/login.php');
             echo "!!";
-        }
+		}
     }
 
 ?>

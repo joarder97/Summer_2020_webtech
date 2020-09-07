@@ -27,6 +27,22 @@ require_once('../db/db.php');
         }
     }
 
-    //function login
+    //validation 
+    function validate(){
+        $con = dbConnection();
+
+        global $email;
+        global $password;
+
+        $user_check_query = "SELECT * FROM user WHERE password = '$password' and email = '$email' LIMIT 1";
+        $result = $con->query($user_check_query);
+        //$row = mysqli_fetch_row($result);
+        if($result->num_rows > 0){
+            return true;
+        }
+        else{
+           return false;
+        }
+    }
 
 ?>
